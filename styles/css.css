@@ -247,7 +247,7 @@ body {
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
   width: 408px;
-  height: 576px;
+  min-height: 576px;
   background: #fcfcfc;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12),
     0px 2px 1px rgba(0, 0, 0, 0.2);
@@ -271,6 +271,13 @@ body {
   background-color: #e7e9fc;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: color 250ms var(--cubic-function),
+    background-color 250ms var(--cubic-function);
+}
+
+.close-button:active {
+  color: var(--basic-white);
+  background-color: var(--pressed-state);
 }
 
 .icon-close {
@@ -374,6 +381,52 @@ body {
 
 .modal-input-wrapper:focus-within .modal-form-icon {
   transform: translateY(-50%) scale(1.2);
+}
+
+.modal-button {
+  padding: 16px 32px;
+}
+
+.icon-checkbox-wrapper {
+  color: #f4f4fd;
+  line-height: 0;
+}
+
+.icon-checkbox {
+  fill: currentColor;
+  border: 1px solid var(--dark-color);
+  border-radius: 2px;
+  transition: background-color 250ms var(--cubic-function),
+    border-color 250ms var(--cubic-function);
+  cursor: pointer;
+}
+
+.modal-form-checkbox:checked + .modal-form-terms-label .icon-checkbox {
+  background-color: var(--pressed-state);
+  border-color: transparent;
+}
+
+.modal-form-checkbox:focus + .modal-form-terms-label .icon-checkbox {
+  outline: 1px solid rgba(46, 47, 66, 0.5);
+}
+
+.form-terms-label-text {
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: #8e8f99;
+  margin-left: 8px;
+}
+
+.form-terms-label-text .privacy-policy {
+  color: var(--primary-brand);
+  text-decoration: underline;
+}
+
+.modal-form-terms-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
 }
 
 /* ADVANTAGES */
@@ -626,6 +679,11 @@ body {
   color: var(--basic-white);
 }
 
+.email-input:focus {
+  outline: none;
+  border-color: var(--primary-brand);
+}
+
 .email-input::placeholder {
   color: var(--basic-white);
   font-size: 12px;
@@ -636,11 +694,16 @@ body {
   display: flex;
   align-items: center;
   padding: 8px 24px;
-  background-color: #4d5ae5;
+  background-color: var(--primary-brand);
   border-style: none;
   border-radius: 4px;
   color: var(--basic-white);
   margin-left: 24px;
+  transition: background-color 250ms var(--cubic-function);
+}
+
+.mail-button:is(:hover, :focus) {
+  background-color: var(--pressed-state);
 }
 
 .icon-send {
